@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { Character } from "../../types/character";
 import Filter from "../filter";
+import Card from "../card";
 
 interface CharacterListProps {
   characters: Character[];
@@ -31,12 +32,16 @@ function CharacterList({ characters }: CharacterListProps) {
     setFilteredCharacters(filtered);
   };
 
-  console.log(filteredCharacters)
-
-
   return (
     <div>
         <Filter onFilter={handleFilter} />
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+          {
+            filteredCharacters.map((character: Character) => (
+              <Card character={character} key={character.id} />
+            ))
+          }
+        </div>
     </div>
   )
 }
