@@ -17,11 +17,11 @@ function Filter({ onFilter }: FilterProps) {
   };
 
   return (
-    <div className="flex gap-4 mb-4">
+    <div className="flex gap-4 mb-4 justify-center mt-7">
       <select
         onChange={(e) => setStatus(e.target.value as Character["status"] | "")}
         value={status}
-        className="p-2 border"
+        className="p-2 border text-[#97ce4c]"
       >
         <option value="">Status</option>
         <option value="Alive">Alive</option>
@@ -32,7 +32,7 @@ function Filter({ onFilter }: FilterProps) {
       <select
         onChange={(e) => setGender(e.target.value as Character["gender"] | "")}
         value={gender}
-        className="p-2 border"
+        className="p-2 border text-[#97ce4c]"
       >
         <option value="">Gender</option>
         <option value="Male">Male</option>
@@ -43,7 +43,7 @@ function Filter({ onFilter }: FilterProps) {
 
       <button
         onClick={handleFilterChange}
-        className="p-2 bg-blue-500 text-white"
+        className="p-2 bg-[#97ce4c] text-white"
       >
         Apply Filters
       </button>
