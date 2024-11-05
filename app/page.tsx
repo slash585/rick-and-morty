@@ -1,3 +1,4 @@
+import CharacterList from "./_components/characterList";
 import { Characters } from "./types/character"; 
 
 async function fetchCharacters() {
@@ -6,23 +7,11 @@ async function fetchCharacters() {
 }
 
 export default async function Home() {
+  let characters: Characters = await fetchCharacters()
 
-  let characters: Characters | undefined
-  let error = null
-
-  try {
-    characters = await fetchCharacters()
-  } catch(err) {
-    error = "Something went wrong"
-  }
-
-  if (error) {
-    return <div>{error}</div>
-  } 
-  
   return (
-    <div className="">
-
+    <div className="flex justify-center items-center min-h-screen">
+      <CharacterList characters={characters.results} />
     </div>
   );
 }
